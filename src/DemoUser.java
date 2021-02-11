@@ -1,5 +1,10 @@
 import utils.Menu;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import quiz.Question;
+import quiz.*;
 
 public class DemoUser {
     public static void main(final String[] args) {
@@ -62,6 +67,19 @@ public class DemoUser {
         jim.doAQuiz(quiz8);
         jim.getLastFive();*/
         //Menu.intro();
+        // String[] array = {"1","2","3"};
+        // Question question = new Question("Math", "How much is 1 + 1", 1, array);
+        // question.createQuestion(question);
+        // question.saveQuestion(question);
+
+        // question.readQuestion(question.getName());
+        // ArrayList<String> demoquestion = new ArrayList<>();
+        // demoquestion.add("Math");
+        // QuestionUtil qutil = new QuestionUtil();
+        // qutil.loadAllQuestions(demoquestion);
+
     }
 }
+
+//todo quizes from files, add edit question functon and fuction to clear and save files when exit
 

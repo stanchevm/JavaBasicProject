@@ -13,9 +13,9 @@ public class Question {
 
     public static final int NUMBER_OF_ANSWERS = 3;
     public static final int MIN_NUMBER_OF_ANSWERS = 1;
-    private static final int QUESTION_HEAD_POSITION = 0;
-    private static final int QUESTION_ANSWER_POSITION = 1;
-    private static final int QUESTION_RIGHT_ANSWER_POSITION = 2;
+    public static final int QUESTION_HEAD_POSITION = 0;
+    public static final int QUESTION_ANSWER_POSITION = 1;
+    public static final int QUESTION_RIGHT_ANSWER_POSITION = 2;
     private String name;
     private String questionBody;
     private int rightAnswer;
@@ -41,9 +41,21 @@ public class Question {
             if(file.createNewFile()){
                 System.out.println("Question " + question.getName() + " Has been saved");
             } else{
-                System.out.println("Could not save " + question.getName() + " ! Question already exists");
+                System.out.println("Could not save " + question.getName() + " ! Question already exist");
             }
         } catch (IOException e) {
+            System.out.println("An error occurred");
+            e.printStackTrace();
+        }
+    }
+
+    private void deleteQuestion(String questionName){
+        try {
+            File question = new File(Util.fileFormat(questionName));
+            if (!question.delete()) {
+                System.out.println("Failed to modify: " + questionName);
+            }
+        } catch(IOException e) {
             System.out.println("An error occurred");
             e.printStackTrace();
         }
