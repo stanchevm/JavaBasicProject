@@ -12,7 +12,6 @@ public class Quiz {
     private Question[] questions;
     private int questionCount = 0;
 
-
     public Quiz(String name, int numberOfQuestions) {
         if(name.equals(null)){
             System.out.println("Name cannot be null");
@@ -52,7 +51,7 @@ public class Quiz {
         try {
             FileWriter writer = new FileWriter(fileFormat(quiz.getName()));
             for (int i = 0; i < questions.length; i ++){
-                writer.write(questions[i].toString());
+                writer.write(questions[i].getName());
             }
             writer.close();
             System.out.println("Quiz " + quiz.getName() + " Has been saved");
@@ -65,7 +64,6 @@ public class Quiz {
     public String getName() {
         return this.name;
     }
-
 
     private String fileFormat(String file){
         return String.format("%s.txt", file);

@@ -1,7 +1,8 @@
 import utils.Menu;
+import quiz.Question;
 
 public class DemoUser {
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
 /*        HashMap<String, HashMap> question1= new HashMap<String, HashMap>();
         HashMap<String, Boolean> answers1= new HashMap<String, Boolean>();
         question1.put("How high is mount Everest",answers1);
@@ -60,7 +61,7 @@ public class DemoUser {
         System.out.println("----------------------------");
         jim.doAQuiz(quiz8);
         jim.getLastFive();*/
-        Menu.intro();
+        //Menu.intro();
     }
 }
 

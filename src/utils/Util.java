@@ -52,6 +52,10 @@ public class Util {
             iPasswordScore += 2;
 
         return iPasswordScore;
-
     }
+
+    public static String fileFormat(String file){
+        return String.format("%s.txt", file);
+    }
+
 }
