@@ -3,6 +3,7 @@ package quiz;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import util.Util;
 
 public class Quiz {
 
@@ -35,7 +36,7 @@ public class Quiz {
 
     public void createQuiz(Quiz quiz){
         try {
-            File file = new File(fileFormat(quiz.getName()));
+            File file = new File(Util.fileFormat(quiz.getName()));
             if(file.createNewFile()){
                 System.out.println("Quiz " + quiz.getName() + " Has been saved");
             } else{
@@ -49,7 +50,7 @@ public class Quiz {
 
     public void saveQuiz(Quiz quiz){
         try {
-            FileWriter writer = new FileWriter(fileFormat(quiz.getName()));
+            FileWriter writer = new FileWriter(Util.fileFormat(quiz.getName()));
             for (int i = 0; i < questions.length; i ++){
                 writer.write(questions[i].getName());
             }
@@ -63,9 +64,5 @@ public class Quiz {
 
     public String getName() {
         return this.name;
-    }
-
-    private String fileFormat(String file){
-        return String.format("%s.txt", file);
     }
 }

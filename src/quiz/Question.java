@@ -13,6 +13,9 @@ public class Question {
 
     public static final int NUMBER_OF_ANSWERS = 3;
     public static final int MIN_NUMBER_OF_ANSWERS = 1;
+    private static final int QUESTION_HEAD_POSITION = 0;
+    private static final int QUESTION_ANSWER_POSITION = 1;
+    private static final int QUESTION_RIGHT_ANSWER_POSITION = 2;
     private String name;
     private String questionBody;
     private int rightAnswer;
@@ -65,7 +68,12 @@ public class Question {
             Scanner myReader = new Scanner(question);
             while (myReader.hasNextLine()) {
                 String data = myReader.nextLine();
-                System.out.println(data);
+                String[] questionInfo = data.split("/");
+                String questionHead = questionInfo[QUESTION_HEAD_POSITION];
+                String questionAnswers = questionInfo[QUESTION_ANSWER_POSITION];
+
+                System.out.println(questionHead);
+                System.out.println(questionAnswers);
             }
             myReader.close();
         } catch (FileNotFoundException e) {
@@ -96,6 +104,7 @@ public class Question {
 
     @Override
     public String toString() {
-        return "Question = " + questionBody + ", answers = " + Arrays.toString(answers);
+        return questionBody + "/" + Arrays.toString(answers) + "/" + rightAnswer;
     }
+    //edit question object question = new question with changes
 }
