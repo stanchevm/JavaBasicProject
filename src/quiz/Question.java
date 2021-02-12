@@ -22,7 +22,8 @@ public class Question {
     private String[] answers = new String[NUMBER_OF_ANSWERS];
 
     public Question(String name, String questionBody, int rightAnswer, String[] answers) {
-         validateName(name);
+         Util.validate(name);
+         Util.validate(questionBody);
          if(rightAnswer > NUMBER_OF_ANSWERS && rightAnswer < MIN_NUMBER_OF_ANSWERS){
             System.out.println("The right answer cannot be higher than 3 and lower than 1");
         } if(answers.length < NUMBER_OF_ANSWERS){
@@ -33,72 +34,6 @@ public class Question {
          this.questionBody = questionBody;
          this.rightAnswer = rightAnswer;
          this.answers = answers;
-    }
-
-    public void createQuestion(Question question){
-        try {
-            File file = new File(Util.fileFormat(question.getName()));
-            if(file.createNewFile()){
-                System.out.println("Question " + question.getName() + " Has been saved");
-            } else{
-                System.out.println("Could not save " + question.getName() + " ! Question already exist");
-            }
-        } catch (IOException e) {
-            System.out.println("An error occurred");
-            e.printStackTrace();
-        }
-    }
-
-    private void deleteQuestion(String questionName){
-        try {
-            File question = new File(Util.fileFormat(questionName));
-            if (!question.delete()) {
-                System.out.println("Failed to modify: " + questionName);
-            }
-        } catch(IOException e) {
-            System.out.println("An error occurred");
-            e.printStackTrace();
-        }
-    }
-
-    public void saveQuestion(Question question){
-        try {
-            FileWriter writer = new FileWriter(Util.fileFormat(question.getName()));
-            writer.write(question.toString());
-            writer.close();
-            System.out.println("Question " + question.getName() + " Has been saved");
-        } catch (IOException e){
-            System.out.println("Could not save question " + question.getName());
-            e.printStackTrace();
-        }
-    }
-
-    public void readQuestion(String questionName) {
-        validateName(questionName);
-        try {
-            File question = new File(Util.fileFormat(questionName));
-            Scanner myReader = new Scanner(question);
-            while (myReader.hasNextLine()) {
-                String data = myReader.nextLine();
-                String[] questionInfo = data.split("/");
-                String questionHead = questionInfo[QUESTION_HEAD_POSITION];
-                String questionAnswers = questionInfo[QUESTION_ANSWER_POSITION];
-
-                System.out.println(questionHead);
-                System.out.println(questionAnswers);
-            }
-            myReader.close();
-        } catch (FileNotFoundException e) {
-            System.out.println("Question with name " + questionName);
-            e.printStackTrace();
-        }
-    }
-
-    private void validateName(String name){
-        if (name.equals(null) || name.isEmpty()) {
-            System.out.println("Question name cannot be null");
-        }
-        return;
     }
 
     private boolean correctAnswer(int answer){

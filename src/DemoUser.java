@@ -67,7 +67,7 @@ public class DemoUser {
         jim.doAQuiz(quiz8);
         jim.getLastFive();*/
         //Menu.intro();
-        // String[] array = {"1","2","3"};
+        String[] array = {"90", "100", "OVER 9000"};
         // Question question = new Question("Math", "How much is 1 + 1", 1, array);
         // question.createQuestion(question);
         // question.saveQuestion(question);
@@ -75,8 +75,16 @@ public class DemoUser {
         // question.readQuestion(question.getName());
         // ArrayList<String> demoquestion = new ArrayList<>();
         // demoquestion.add("Math");
-        // QuestionUtil qutil = new QuestionUtil();
+        QuestionUtil qutil = new QuestionUtil();
         // qutil.loadAllQuestions(demoquestion);
+        // String[] questions = {"q1", "q2", "q3", "q4", "q5", "q6", "q7", "q8", "q9" ,"q10"};
+        // Quiz quiz1 = new Quiz("Quiz1", questions);
+        // quiz1.createQuiz(quiz1);
+        // quiz1.saveQuiz(quiz1);
+        qutil.startTheSystem();
+        qutil.readQuestion("q1");
+        qutil.editQuestion("q4", "How much Miro Weights?", 3, array);
+        qutil.saveDataOnExit();
 
     }
 }

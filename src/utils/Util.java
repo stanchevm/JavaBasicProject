@@ -23,6 +23,13 @@ public class Util {
         }
     }
 
+    public static void validate(String input){
+        if (input.equals(null) || input.isEmpty()) {
+            System.out.println("Input cannot be empty");
+        }
+        return;
+    }
+
     private static int calculatePasswordStrength(String password) {
 
         //total score of password
